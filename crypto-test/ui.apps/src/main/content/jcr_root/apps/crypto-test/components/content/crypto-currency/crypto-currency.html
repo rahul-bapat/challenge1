@@ -1,0 +1,51 @@
+<br>
+<h3 style="text-align: center;">Crypto Currency<br>
+</h3>
+<div data-sly-use.model="com.aem.challenge.core.models.CryptoCurrencyComponentModel">
+    <sly data-sly-test = "${model.currencyResults.size == 0}"> No Best Sell or Buy Prices Found</sly>
+
+    <!-- Attributes as a row -->
+    <div>
+        <sly data-sly-test = "${model.currencyResults}">
+            <table class="table-responsive-md table-striped table-bordered crypto-table" id="currency">
+
+                <thead>
+
+               		 <tr>
+                      <sly data-sly-list.result="${model.currencyResults}">
+						<th colspan="2">${result.currency}</th>
+                       </sly>
+                	</tr>
+
+                </thead>
+                <tbody>
+					 <tr>
+                       	<sly data-sly-list.result="${model.currencyResults}">
+                           	<td>Buy</td><td>Sell</td>
+                        </sly>
+				     </tr>
+				     <tr>
+                     	<sly data-sly-list.result="${model.currencyResults}">
+                            <td>$${result.bestQuote.buy.price}</td>
+                            <td>$${result.bestQuote.sell.price}</td>
+						</sly>
+                     </tr>
+                     <tr>
+                        <sly data-sly-list.result="${model.currencyResults}">
+                            <td>${result.bestQuote.buy.time}</td>
+                            <td>${result.bestQuote.sell.time}</td>
+						 </sly>
+                     </tr>
+                      <tr>
+                        <sly data-sly-list.result="${model.currencyResults}">
+                            <td>Profit</td>
+                            <td>$${result.bestQuote.diff}</td>
+						 </sly>
+                     </tr>
+                </tbody>
+            </table>
+         </sly>
+    </div>
+
+</div>
+<br><br>

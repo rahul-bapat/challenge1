@@ -1,0 +1,6 @@
+#base=assets/js
+bootstrap.min.js
+jquery.flot.js
+jquery.flot.time.js
+customscript.js
+
